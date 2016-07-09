@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestCases>
+  <TestCase>
+    <value>-5,75</value>
+    <ExpectedResult>11000000101110000000000000000000</ExpectedResult>
+  </TestCase>
+  <TestCase>
+    <value>0,75</value>
+    <ExpectedResult>00111111010000000000000000000000</ExpectedResult>
+  </TestCase>
+  <TestCase>
+    <value>-0,86</value>
+    <ExpectedResult>10111111010111000010100011110110</ExpectedResult>
+  </TestCase>
+</TestCases>

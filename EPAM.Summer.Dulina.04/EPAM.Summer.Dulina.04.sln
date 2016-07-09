@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkAreaForTaskTwoTests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "..\..\TestForTask4\Test.csproj", "{74B6AA4D-3248-4E1B-B0B4-54A328E65E2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethods", "ExtensionMethods\ExtensionMethods.csproj", "{E2679CDF-B5B8-4FAB-9297-8A4F134E2140}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethodsTests", "ExtensionMethodsTests\ExtensionMethodsTests.csproj", "{7B21F1DD-83E7-48D8-BA26-0717013CB1E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{74B6AA4D-3248-4E1B-B0B4-54A328E65E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74B6AA4D-3248-4E1B-B0B4-54A328E65E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74B6AA4D-3248-4E1B-B0B4-54A328E65E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2679CDF-B5B8-4FAB-9297-8A4F134E2140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2679CDF-B5B8-4FAB-9297-8A4F134E2140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2679CDF-B5B8-4FAB-9297-8A4F134E2140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2679CDF-B5B8-4FAB-9297-8A4F134E2140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B21F1DD-83E7-48D8-BA26-0717013CB1E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B21F1DD-83E7-48D8-BA26-0717013CB1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B21F1DD-83E7-48D8-BA26-0717013CB1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B21F1DD-83E7-48D8-BA26-0717013CB1E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
