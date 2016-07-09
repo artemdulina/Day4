@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixOperations", "MatrixO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkAreaForTaskTwo", "WorkAreaForTaskTwo\WorkAreaForTaskTwo.csproj", "{1272CEB1-6FA9-4771-8831-05ECF6696699}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkAreaForTaskTwoTests", "WorkAreaForTaskTwoTests\WorkAreaForTaskTwoTests.csproj", "{C9B24340-9E42-4C81-8142-DD300D185089}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "..\..\TestForTask4\Test.csproj", "{74B6AA4D-3248-4E1B-B0B4-54A328E65E2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{1272CEB1-6FA9-4771-8831-05ECF6696699}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1272CEB1-6FA9-4771-8831-05ECF6696699}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1272CEB1-6FA9-4771-8831-05ECF6696699}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9B24340-9E42-4C81-8142-DD300D185089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B24340-9E42-4C81-8142-DD300D185089}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B24340-9E42-4C81-8142-DD300D185089}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B24340-9E42-4C81-8142-DD300D185089}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74B6AA4D-3248-4E1B-B0B4-54A328E65E2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B6AA4D-3248-4E1B-B0B4-54A328E65E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B6AA4D-3248-4E1B-B0B4-54A328E65E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B6AA4D-3248-4E1B-B0B4-54A328E65E2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

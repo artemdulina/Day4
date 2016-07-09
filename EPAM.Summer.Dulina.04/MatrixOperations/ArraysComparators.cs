@@ -7,79 +7,89 @@ using System.Threading.Tasks;
 
 namespace MatrixOperations
 {
-    public class SortBySumOfTheElements : IComparer
+    public class SortBySumOfTheElements : IJaggedArraysComparer
     {
-        int IComparer.Compare(object x, object y)
+        public int Compare(int x, int y)
         {
-            int[] a = x as int[];
-            int[] b = y as int[];
-            int sumA = 0;
-            for (int i = 0; i < a.Length; i++)
-            {
-                sumA += a[i];
-            }
-            int sumB = 0;
-            for (int i = 0; i < b.Length; i++)
-            {
-                sumB += b[i];
-            }
-            if (sumA > sumB)
+            if (x > y)
                 return 1;
-            else if (sumA < sumB)
+            if (x < y)
                 return -1;
-            else return 0;
+            return 0;
+        }
+
+        public int[] GetCompareElements(int[][] array)
+        {
+            int[] sumValues = new int[array.Length];
+            int sum = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    sum += array[i][j];
+                }
+                sumValues[i] = sum;
+                sum = 0;
+            }
+            return sumValues;
         }
     }
 
-    public class SortByMaximumOfTheElements : IComparer
+    public class SortByMaximumOfTheElements : IJaggedArraysComparer
     {
-        int IComparer.Compare(object x, object y)
+        public int Compare(int x, int y)
         {
-            int[] a = x as int[];
-            int[] b = y as int[];
-            int maxA = int.MinValue;
-            for (int i = 0; i < a.Length; i++)
-            {
-                if (maxA < a[i])
-                    maxA = a[i];
-            }
-            int maxB = int.MinValue;
-            for (int i = 0; i < b.Length; i++)
-            {
-                if (maxB < b[i])
-                    maxB = b[i];
-            }
-            if (maxA > maxB)
+            if (x > y)
                 return 1;
-            else if (maxA < maxB)
+            if (x < y)
                 return -1;
-            else return 0;
+            return 0;
+        }
+
+        public int[] GetCompareElements(int[][] array)
+        {
+            int max = int.MinValue;
+            int[] maxValues = new int[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    if (array[i][j] > max)
+                        max = array[i][j];
+                }
+                maxValues[i] = max;
+                max = int.MinValue;
+            }
+            return maxValues;
         }
     }
 
-    public class SortByMinimumOfTheElements : IComparer
+    public class SortByMinimumOfTheElements : IJaggedArraysComparer
     {
-        int IComparer.Compare(object x, object y)
+        public int Compare(int x, int y)
         {
-            int[] a = x as int[];
-            int[] b = y as int[];
-            int minA = int.MaxValue;
-            for (int i = 0; i < a.Length; i++)
-            {
-                if (minA > a[i])
-                    minA = a[i];
-            }
-            int minB = int.MaxValue;
-            for (int i = 0; i < b.Length; i++)
-            {
-                if (minB > b[i])
-                    minB = b[i];
-            }
-            if (minA > minB)
+            if (x > y)
                 return 1;
-            else if (minA < minB)
+            if (x < y)
                 return -1;
-            else return 0;
+            return 0;
+        }
+
+        public int[] GetCompareElements(int[][] array)
+        {
+            int min = int.MaxValue;
+            int[] minValues = new int[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    if (array[i][j] < min)
+                        min = array[i][j];
+                }
+                minValues[i] = min;
+                min = int.MaxValue;
+            }
+            return minValues;
         }
     }
 }

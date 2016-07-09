@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestCases>
+  <TestCase>
+    <Name>Artem</Name>
+    <Phone>375257468501</Phone>
+    <Revenue>10</Revenue>
+    <FormatString>{0:N}{0:P}{0:R}</FormatString>
+    <ExpectedResult>Name: ArtemContactPhone: 375257468501Revenue: 10</ExpectedResult>
+  </TestCase>
+<TestCase>
+    <Name>Artem</Name>
+    <Phone>375257468501</Phone>
+    <Revenue>10</Revenue>
+    <FormatString>{0:G}</FormatString>
+    <ExpectedResult>Customer record: Artem, 375257468501, 10</ExpectedResult>
+  </TestCase>
+</TestCases>

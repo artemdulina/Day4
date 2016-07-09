@@ -30,18 +30,22 @@ namespace WorkAreaForTaskTwo
         public string ToString(string format, IFormatProvider formatProvider)
         {
             if (String.IsNullOrEmpty(format)) format = "G";
-            if (formatProvider == null) formatProvider = CultureInfo.CurrentCulture;
+
+            if (formatProvider == null)
+            {
+                formatProvider = CultureInfo.CurrentCulture;
+            }
 
             switch (format.ToUpperInvariant())
             {
                 case "G":
                     return ToString();
                 case "N":
-                    return "Customer record: " + Name;
+                    return string.Format(formatProvider, "Name: {0}", Name);
                 case "P":
-                    return "Customer record: " + ContactPhone;
+                    return string.Format(formatProvider, "ContactPhone: {0}", ContactPhone);
                 case "R":
-                    return Revenue.ToString("F2", formatProvider);
+                    return string.Format(formatProvider, "Revenue: {0}", Revenue);
                 default:
                     throw new FormatException(string.Format("The {0} format string is not supported.", format));
             }
