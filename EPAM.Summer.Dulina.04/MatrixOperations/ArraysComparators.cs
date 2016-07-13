@@ -92,4 +92,33 @@ namespace MatrixOperations
             return minValues;
         }
     }
+
+    public class SortByMaximumModulusOfTheElements : IJaggedArraysComparer
+    {
+        public int Compare(int x, int y)
+        {
+            if (x > y)
+                return 1;
+            if (x < y)
+                return -1;
+            return 0;
+        }
+
+        public int[] GetCompareElements(int[][] array)
+        {
+            int max = int.MinValue;
+            int[] maxValues = new int[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    if (Math.Abs(array[i][j]) > max)
+                        max = Math.Abs(array[i][j]);
+                }
+                maxValues[i] = max;
+                max = int.MinValue;
+            }
+            return maxValues;
+        }
+    }
 }

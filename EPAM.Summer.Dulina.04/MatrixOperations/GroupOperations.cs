@@ -26,72 +26,14 @@ namespace MatrixOperations
             b = temp;
         }
 
-        /*private static int[] FindMaxOfEachRow(int[][] array)
-        {
-            int max = int.MinValue;
-            int[] maxValues = new int[array.Length];
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array[i].Length; j++)
-                {
-                    if (array[i][j] > max)
-                        max = array[i][j];
-                }
-                maxValues[i] = max;
-                max = int.MinValue;
-            }
-            return maxValues;
-        }
-
-        private static int[] FindMinOfEachRow(int[][] array)
-        {
-            int min = int.MaxValue;
-            int[] minValues = new int[array.Length];
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array[i].Length; j++)
-                {
-                    if (array[i][j] < min)
-                        min = array[i][j];
-                }
-                minValues[i] = min;
-                min = int.MaxValue;
-            }
-            return minValues;
-        }
-
-        private static int[] FindSumOfEachRow(int[][] array)
-        {
-            int[] sumValues = new int[array.Length];
-            int sum = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array[i].Length; j++)
-                {
-                    sum += array[i][j];
-                }
-                sumValues[i] = sum;
-                sum = 0;
-            }
-            return sumValues;
-        }*/
-
-        public static IJaggedArraysComparer SortRowsBySumOfTheElements
-        {
-            get { return new SortBySumOfTheElements(); }
-        }
-
-        public static IJaggedArraysComparer SortRowsByMaximumOfTheElements
-        {
-            get { return new SortByMaximumOfTheElements(); }
-        }
-
-        public static IJaggedArraysComparer SortRowsByMinimumOfTheElements
-        {
-            get { return new SortByMinimumOfTheElements(); }
-        }
-
-        public static void SortingByRows(int[][] array, IJaggedArraysComparer comparer, bool reverse = false)
+        /// <summary>
+        /// The sort compares the elements to each
+        /// other using the IComparable interface, which must be implemented
+        /// by all elements of the array.
+        /// </summary>
+        /// <param name="array">Jagged array to be sorted.</param>
+        /// <returns>Sorted jagged array</returns>
+        public static void SortingByRows(int[][] array, IJaggedArraysComparer comparer)
         {
             int[] helper = comparer.GetCompareElements(array);
 
@@ -106,78 +48,14 @@ namespace MatrixOperations
                     }
                 }
             }
-
-            if (reverse)
-            {
-                for (int i = 0; i < array.Length / 2; i++)
-                {
-                    Swap(ref array[i], ref array[array.Length - 1 - i]);
-                }
-            }
         }
 
-        /*public static void SortingByRows(int[][] array, IComparer comparer, bool reverse = false)
+        public static void Reverse(int[][] array)
         {
-            for (var i = 0; i < array.Length; i++)
+            for (int i = 0; i < array.Length / 2; i++)
             {
-                for (var j = 1; j < array.Length - i; j++)
-                {
-                    if (comparer.Compare(array[j], array[j - 1]) == -1)
-                        Swap(ref array[j], ref array[j - 1]);
-                }
+                Swap(ref array[i], ref array[array.Length - i - 1]);
             }
-
-            if (reverse)
-            {
-                for (int i = 0; i < array.Length / 2; i++)
-                {
-                    Swap(ref array[i], ref array[array.Length - 1 - i]);
-                }
-            }
-        }*/
-
-        /*public static void SortArrayByMaximumOfTheElements(int[][] array, bool reverse = false)
-        {
-            int[] helper = FindMaxOfEachRow(array);
-
-            SimpleSort(array, helper, reverse);
         }
-
-        public static void SortArrayByMinimumOfTheElements(int[][] array, bool reverse = false)
-        {
-            int[] helper = FindMinOfEachRow(array);
-
-            SimpleSort(array, helper, reverse);
-        }
-
-        public static void SortArrayBySumOfTheElements(int[][] array, bool reverse = false)
-        {
-            int[] helper = FindSumOfEachRow(array);
-
-            SimpleSort(array, helper, reverse);
-        }
-
-        private static void SimpleSort(int[][] array, int[] helper, bool reverse = false)
-        {
-            for (var i = 0; i < array.Length; i++)
-            {
-                for (var j = 1; j < array.Length - i; j++)
-                {
-                    if (helper[j] < helper[j - 1])
-                    {
-                        Swap(ref array[j], ref array[j - 1]);
-                        Swap(ref helper[j], ref helper[j - 1]);
-                    }
-                }
-            }
-
-            if (reverse)
-            {
-                for (int i = 0; i < array.Length / 2; i++)
-                {
-                    Swap(ref array[i], ref array[array.Length - 1 - i]);
-                }
-            }
-        }*/
     }
 }
