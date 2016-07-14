@@ -2,6 +2,34 @@
 
 namespace MatrixOperations
 {
+    public static class SortingFunctions
+    {
+        public static int SortingAscending(int x, int y)
+        {
+            if (x > y)
+                return 1;
+            if (x < y)
+                return -1;
+            return 0;
+        }
+
+        public static int[] MaximumElements(int[][] array)
+        {
+            int max = int.MinValue;
+            int[] maxValues = new int[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    if (array[i][j] > max)
+                        max = array[i][j];
+                }
+                maxValues[i] = max;
+                max = int.MinValue;
+            }
+            return maxValues;
+        }
+    }
     public class SortBySumOfTheElements : IJaggedArraysComparer
     {
         public int Compare(int x, int y)

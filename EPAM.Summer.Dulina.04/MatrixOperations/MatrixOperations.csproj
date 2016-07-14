@@ -40,9 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComparerOnFunction.cs" />
+    <Compile Include="FunctionOnComparer.cs" />
     <Compile Include="GroupOperations.cs" />
     <Compile Include="ArraysComparators.cs" />
+    <Compile Include="GroupOperationsReverse.cs" />
     <Compile Include="IJaggedArraysComparer.cs" />
+    <Compile Include="JaggedArraysHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

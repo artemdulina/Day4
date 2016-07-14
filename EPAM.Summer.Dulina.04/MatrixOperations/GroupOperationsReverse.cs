@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace MatrixOperations
 {
-    public static class GroupOperations
+    public static class GroupOperationsReverse
     {
         private static void Swap(ref int a, ref int b)
         {
@@ -26,7 +25,6 @@ namespace MatrixOperations
         /// <param name="comparer">The MatrixOperations.IJaggedArraysComparer implementation to use when comparing elements.</param>
         /// <returns>Sorted jagged array</returns>
         /// <exception cref="ArgumentNullException">array is null.</exception>
-        /// <exception cref="ArgumentException">array rows number not equals to the number of elements of compare returned value</exception>
         public static void SortingByRows(int[][] array, IJaggedArraysComparer comparer = null)
         {
             if (array == null)
@@ -37,24 +35,9 @@ namespace MatrixOperations
             {
                 comparer = JaggedArraysHelper.DefaultComparer;
             }
-
-            int[] helper = comparer.GetCompareElements(array);
-            if (helper.Length != array.Length)
-            {
-                throw new ArgumentException("Should return array with the number of elements equals to the number of rows of the array", nameof(comparisonValues));
-            }
-
-            for (var i = 0; i < array.Length; i++)
-            {
-                for (var j = 1; j < array.Length - i; j++)
-                {
-                    if (comparer.Compare(helper[j], helper[j - 1]) == -1)
-                    {
-                        Swap(ref array[j], ref array[j - 1]);
-                        Swap(ref helper[j], ref helper[j - 1]);
-                    }
-                }
-            }
+            Comparison<int> comparison = FunctionOnComparer.Comparison(comparer);
+            ComparedValues comparisonValues = FunctionOnComparer.ComparedValues(comparer);
+            SortingByRows(array, comparison, comparisonValues);
         }
 
         /// <summary>
@@ -65,6 +48,7 @@ namespace MatrixOperations
         /// <param name="comparisonValues">The MatrixOperations.Comparison to use when comparing rows.</param>
         /// <returns>Sorted jagged array</returns> 
         /// <exception cref="ArgumentNullException">array is null or comparison is null or comparisonValues is null</exception>
+        /// <exception cref="ArgumentException">array rows number not equals to the number of elements of comparisonValues returned value</exception>
         public static void SortingByRows(int[][] array, Comparison<int> comparison, ComparedValues comparisonValues)
         {
             if (array == null)
@@ -79,8 +63,24 @@ namespace MatrixOperations
             {
                 throw new ArgumentNullException(nameof(comparisonValues));
             }
-            IJaggedArraysComparer comparer = new ComparerOnFunction(comparison, comparisonValues);
-            SortingByRows(array, comparer);
+
+            int[] helper = comparisonValues(array);
+            if (helper.Length != array.Length)
+            {
+                throw new ArgumentException("Should return array with the number of elements equals to the number of rows of the array", nameof(comparisonValues));
+            }
+
+            for (var i = 0; i < array.Length; i++)
+            {
+                for (var j = 1; j < array.Length - i; j++)
+                {
+                    if (comparison(helper[j], helper[j - 1]) == -1)
+                    {
+                        Swap(ref array[j], ref array[j - 1]);
+                        Swap(ref helper[j], ref helper[j - 1]);
+                    }
+                }
+            }
 
         }
 
