@@ -35,9 +35,7 @@ namespace MatrixOperations
             {
                 comparer = JaggedArraysHelper.DefaultComparer;
             }
-            Comparison<int> comparison = FunctionOnComparer.Comparison(comparer);
-            ComparedValues comparisonValues = FunctionOnComparer.ComparedValues(comparer);
-            SortingByRows(array, comparison, comparisonValues);
+            SortingByRows(array, comparer.Compare, comparer.GetCompareElements);
         }
 
         /// <summary>

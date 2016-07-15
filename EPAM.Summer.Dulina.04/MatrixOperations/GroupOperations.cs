@@ -41,7 +41,7 @@ namespace MatrixOperations
             int[] helper = comparer.GetCompareElements(array);
             if (helper.Length != array.Length)
             {
-                throw new ArgumentException("Should return array with the number of elements equals to the number of rows of the array", nameof(comparisonValues));
+                throw new ArgumentException("Should return array with the number of elements equals to the number of rows of the array", nameof(comparer));
             }
 
             for (var i = 0; i < array.Length; i++)
